@@ -1,41 +1,37 @@
 <?php
+require_once('matematica.php');
+require_once('ayudaMostrar.php');
+
 $operadorA = $_REQUEST['operadorA'];
 $operadorB = $_REQUEST['operadorB'];
 $operacion = $_REQUEST['operacion'];
 
-switch ($operacion) {
-    case 'suma':
-        $resultado = $operadorA + $operadorB; 
-        break;
-    case 'resta':
-        $resultado = $operadorA - $operadorB;
-        break;
-    case 'multiplica':
-        $resultado = $operadorA * $operadorB;
-        break;
-    case 'divide':
-        $resultado = $operadorA / $operadorB;
-        break;
+function calcularResultado($operadorA, $operadorB, $operacion) {
 
-    default:
-        $resultado = '';
-        break;
+    switch ($operacion) {
+        case 'suma':
+            $resultado = suma($operadorA, $operadorB); 
+            break;
+        case 'resta':
+            $resultado = resta($operadorA, $operadorB);
+            break;
+        case 'multiplica':
+            $resultado = multiplica($operadorA, $operadorB);
+            break;
+        case 'divide':
+            $resultado = divide($operadorA, $operadorB);
+            break;
+        default:
+            $resultado = '';
+            break;
+    }
+
+    return $resultado;    
 }
 
-?>
-<!DOCTYPE html>
-<html>
+$calculo = calcularResultado($operadorA, $operadorB, $operacion);
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Calculadora</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-</head>
-
-<body>
-    <p>El resultado es: <?php echo($resultado); ?></p>
-    <a href="index.php">Volver</a>
-</body>
-
-</html>
+$contenido = encabezado() . 
+    "<p>El resultado es: $calculo</p>".pie();
+    
+echo $contenido;
