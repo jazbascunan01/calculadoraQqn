@@ -1,12 +1,8 @@
 <?php
-require_once('acerca.php');
-require_once('pi.php');
-require_once('calculadora.php');
-require_once('ayudaMostrar.php');
-
-ini_set('display_errors', 1); 
-ini_set('display_startup_errors', 1); 
-error_reporting(E_ALL);
+require_once('util/acerca.php');
+require_once('util/pi.php');
+require_once('util/calculadora.php');
+require_once('util/ayudaMostrar.php');
 
 if (!empty($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
