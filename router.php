@@ -2,20 +2,32 @@
 require_once('acerca.php');
 require_once('pi.php');
 require_once('calculadora.php');
+require_once('ayudaMostrar.php');
 
-$action = $_REQUEST['action'];
+ini_set('display_errors', 1); 
+ini_set('display_startup_errors', 1); 
+error_reporting(E_ALL);
 
-$parametros = explode('/', $action);
+if (!empty($_REQUEST['action'])) {
+    $action = $_REQUEST['action'];
+} else {
+    $action = 'home'; // acción por defecto si no envían
+}
 
-switch ($parametros[0]) {
+switch ($action) {
+    case 'home':
+        home();
+        break;    
     case 'acerca':
         mostrarAcerca();
         break;
     case 'pi':
         mostrarPi();
         break;    
-    default:
-        mostrarCalculo($parametros[1], $parametros[2], $parametros[0]);
+    default: {
+            $parametros = explode('/', $action);
+            mostrarCalculo($parametros[1], $parametros[2], $parametros[0]);
         # code...
+        }
         break;
 }
