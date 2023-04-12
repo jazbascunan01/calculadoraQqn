@@ -2,10 +2,6 @@
 require_once('matematica.php');
 require_once('ayudaMostrar.php');
 
-$operadorA = $_REQUEST['operadorA'];
-$operadorB = $_REQUEST['operadorB'];
-$operacion = $_REQUEST['operacion'];
-
 function calcularResultado($operadorA, $operadorB, $operacion) {
 
     switch ($operacion) {
@@ -22,16 +18,18 @@ function calcularResultado($operadorA, $operadorB, $operacion) {
             $resultado = divide($operadorA, $operadorB);
             break;
         default:
-            $resultado = '';
+            $resultado = "Operacion no encontrada <b>$operacion</b>";
             break;
     }
 
     return $resultado;    
 }
 
-$calculo = calcularResultado($operadorA, $operadorB, $operacion);
+function mostrarCalculo($operadorA, $operadorB, $operacion) {
+    $calculo = calcularResultado($operadorA, $operadorB, $operacion);
 
-$contenido = encabezado() . 
+    $contenido = encabezado() . 
     "<p>El resultado es: $calculo</p>".pie();
     
-echo $contenido;
+    echo $contenido;
+}
