@@ -27,9 +27,6 @@ function calcularResultado($operadorA, $operadorB, $operacion) {
 
 function mostrarCalculo($operadorA, $operadorB, $operacion) {
     $calculo = calcularResultado($operadorA, $operadorB, $operacion);
-
-    $contenido = encabezado() . 
-    "<p>El resultado es: $calculo</p>".pie();
     
-    echo $contenido;
+    echo $calculo;
 }

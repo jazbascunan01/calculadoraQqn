@@ -18,7 +18,8 @@ function encabezado()
 
 function pie()
 {
-    $pie = "<a href=\"index.php\">Volver</a> 
+    $pie = "<a href=\"/.\">Volver</a> 
+            
         </body>
         </html>";
 
@@ -29,21 +30,23 @@ function home()
 {
     $contenido = encabezado() .
         "<ul>
-            <li><a href=\"pi.php\">Pi</a></li>
-            <li><a href=\"acerca.php\">Acerca</a></li>
+            <li><a href=\"pi\">Pi</a></li>
+            <li><a href=\"acerca\">Acerca</a></li>
         </ul> 
-        <form method=\"get\" action=\"calculadora.php\">
-            <label>A:</label><input required type=\"text\" name=\"operadorA\"> 
-            <label>B:</label><input required type=\"text\" name=\"operadorB\"> 
-            <select name=\"operacion\">
+        <form id=\"formulario\">
+            <label>A:</label><input id=\"operadorA\" required type=\"text\" name=\"operadorA\"> 
+            <label>B:</label><input id=\"operadorB\" required type=\"text\" name=\"operadorB\"> 
+            <select name=\"operando\" id=\"operando\">
                 <option value=\"suma\">Suma</option>
                 <option value=\"resta\">Resta</option>
                 <option value=\"divide\">Divide</option>
                 <option value=\"multiplica\">Multiplica</option>
             </select>
-    
+            
             <button type=\"submit\">Enviar</button>
         </form>
+        <div id=\"divResultado\"></div>
+        <script src=\"js/main.js\"></script>
     </body>
     </html>";
 
