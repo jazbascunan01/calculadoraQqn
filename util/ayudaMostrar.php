@@ -18,7 +18,7 @@ function encabezado()
 
 function pie()
 {
-    $pie = "<a href=\"/.\">Volver</a> 
+    $pie = "<a href=\"".BASE_URL."\">Volver</a> 
             
         </body>
         </html>";

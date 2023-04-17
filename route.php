@@ -1,4 +1,6 @@
 <?php
+define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
 require_once('util/acerca.php');
 require_once('util/pi.php');
 require_once('util/calculadora.php');
